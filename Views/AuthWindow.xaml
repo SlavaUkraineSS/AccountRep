@@ -1,0 +1,52 @@
+﻿<Window x:Class="Account_Project.AuthWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Account_Project"
+        mc:Ignorable="d"
+        Title="AuthWindow" Height="296" Width="481" Background="Black"
+        MaxHeight="296" MaxWidth="481" MinHeight="296" MinWidth="481"
+        >
+    <Grid>
+        <Grid x:Name="LoginGrid" Visibility="Visible">
+            <!--Поля ввода-->
+
+            <TextBox x:Name="AuthNameBox" Text="{Binding Username, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,43,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="240" Height="28" FontSize="16"/>
+            <TextBox x:Name="AuthPassBox" Text="{Binding PasswordBox, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,131,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="240" Height="28" FontSize="16"/>
+           
+            <TextBlock HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" RenderTransformOrigin="0.511,0.575" Width="120" Foreground="White" FontWeight="Bold" Height="21"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,27,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" RenderTransformOrigin="0.511,0.575" Width="120" Foreground="White" FontWeight="Bold"/>
+            <!--Ошибки-->
+            <TextBlock x:Name="ErrorName" HorizontalAlignment="Left" Margin="10,71,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Height="19" Foreground="Red" FontWeight="Normal"/>
+            <TextBlock x:Name="ErrorPassword" HorizontalAlignment="Left" Margin="10,154,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Height="19" Foreground="Red" FontWeight="Normal"/>
+            <!--Кнопки-->
+            <Button Content="LogIn" Command="{Binding LoginCommand}"  HorizontalAlignment="Left" Margin="10,209,0,0" VerticalAlignment="Top" Height="43" Width="100" FontSize="20" FontWeight="Bold"/>
+            <Button x:Name="onCreateAccount" Content="Create account" HorizontalAlignment="Left" Margin="319,221,0,0" VerticalAlignment="Top" Height="31" Width="152" FontSize="20" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF0008C5" FontWeight="Normal" Click="onCreateAccount_Click"/>
+        </Grid>
+
+        <Grid x:Name="RegGrid" Visibility="Collapsed" >
+            <!--Поля ввода-->
+            <TextBox x:Name="EnterNameBox" Text="{Binding Name, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,43,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="240" Height="28" FontSize="16"/>
+            <TextBox x:Name="EnterPassBox" Text="{Binding Password, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,131,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="240" Height="28" FontSize="16"/>
+
+            <TextBlock HorizontalAlignment="Left" Margin="10,105,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" RenderTransformOrigin="0.511,0.575" Width="120" Foreground="White" FontWeight="Bold" Height="21"/>
+            <TextBlock HorizontalAlignment="Left" Margin="10,27,0,0" TextWrapping="Wrap" Text="Name" VerticalAlignment="Top" RenderTransformOrigin="0.511,0.575" Width="120" Foreground="White" FontWeight="Bold"/>
+            <!--Ошибки-->
+            <TextBlock x:Name="EnterErrorName" Text="{Binding ErrorMessageName, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,76,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="240" Height="19" Foreground="Red" FontWeight="Normal"/>
+            <TextBlock x:Name="EnterErrorPassword" Text="{Binding ErrorMessagePassword, Mode=TwoWay}" HorizontalAlignment="Left" Margin="10,164,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="240" Height="19" Foreground="Red" FontWeight="Normal"/>
+            <!--Кнопки-->
+            <Button x:Name="RegButton" Command="{Binding RegisterCommand}" Content="Registration" HorizontalAlignment="Left" Margin="10,210,0,0" VerticalAlignment="Top" Height="42" Width="120" FontWeight="Bold" FontSize="16" Background="{x:Null}" BorderBrush="{x:Null}">
+                <Button.Foreground>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="#FF929395" Offset="1"/>
+                        <GradientStop Color="#FF163D84" Offset="0.207"/>
+                        <GradientStop Color="#FF163D84" Offset="0"/>
+                    </LinearGradientBrush>
+                </Button.Foreground>
+            </Button>
+            <Button x:Name="onLogin" Content="login" HorizontalAlignment="Left" Margin="395,221,0,0" VerticalAlignment="Top" Height="31" Width="76" FontSize="20" BorderBrush="{x:Null}" Background="{x:Null}" Foreground="#FF0008C5" FontWeight="Normal" Click="onLogin_Click"/>
+        </Grid>
+
+    </Grid>
+</Window>
